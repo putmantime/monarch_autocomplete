@@ -161,7 +161,7 @@
   }
   .loading {
     background-color: #ffffff;
-    background-image: url("../../static/img/Infinity.gif");
+    background-image: url("static/img/Infinity.gif");
     background-size: 25px 25px;
     background-position: 99%;
     background-repeat: no-repeat;
