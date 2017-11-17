@@ -1,6 +1,5 @@
 <template>
   <div class="autocomplete" style="position:relative" v-bind:class="{'open':open}">
-    <!--<div v-show="loading" ><img src="../../static/img/Infinity.gif"></div>-->
     <input v-bind:class="{'loading': loading}"
            class="form-control"
            type="text"
@@ -12,7 +11,7 @@
            @keydown.up='up'
            placeholder="search..."
     >
-    <div class="dropdown-menu list-group" style="width: 100%; max-height: 400px; overflow: auto; border-top-left-radius: 0">
+    <div class="dropdown-menu list-group" style="width: 100%; max-height: 400px; overflow: auto;">
       <ul  v-for="(suggestion, index) in suggestions"
       >
         <li @click="suggestionClick(index)"
@@ -31,7 +30,8 @@
 
 <script type="text/babel">
   import axios from 'axios';
-  import _ from 'lodash';
+
+  const debounce = require('lodash/debounce');
 
   export default {
     name: 'AutoComplete',
@@ -45,7 +45,7 @@
       };
     },
     methods: {
-      debounceInput: _.debounce(
+      debounceInput: debounce(
         // eslint-disable-next-line
         function () {
           if (this.value) {
