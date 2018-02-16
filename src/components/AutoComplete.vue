@@ -21,7 +21,6 @@
         >
             <strong>{{ suggestion.label[0] }}</strong><br/>
             <small>{{ suggestion.category }}</small>
-            <small>{{ suggestion.id }}</small>
         </li>
       </ul>
     </div>
